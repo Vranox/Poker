@@ -61,7 +61,7 @@ public class Carte {
     }
     @Override
     public String toString(){
-        return "Le " + this.title + " de " + this.couleur + " vaut " + this.point + " points!";
+        return this.title + " de " + this.couleur;
     }
     public boolean isNumeric(String string){
         try {

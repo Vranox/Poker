@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class MainJoueur {
     ArrayList<Carte> cartes = new ArrayList<>();
+    Carte carteLaPlusHaute;
+
 
     /*
    La méthode permet de comparer deux mains entre elles et retourne :
@@ -9,22 +11,20 @@ public class MainJoueur {
        - 1 : si this est supérieur à la main entrée en paramètre
        - 2 : si this est inférieur à la main entrée en paramètre
     */
-    public int compareTo(MainJoueur mainJoueur2){
-        int maxPointMain1 = 0;
-        int maxPointMain2 = 0;
+    public Carte carteLaPlusHaute(){
+        int maxPointMain = 0;
         for (Carte i : this.cartes) {
-            if(i.point>maxPointMain1){
-                maxPointMain1 = i.point;
+            if(i.point>maxPointMain){
+                maxPointMain = i.point;
+                carteLaPlusHaute = i;
             }
         }
-        for (Carte i : mainJoueur2.cartes) {
-            if(i.point>maxPointMain2){
-                maxPointMain2 = i.point;
-            }
-        }
-        if(maxPointMain1 == maxPointMain2){
+        return  carteLaPlusHaute;
+    }
+    public int compareTo(MainJoueur mainJoueur2){
+        if(this.carteLaPlusHaute().point == mainJoueur2.carteLaPlusHaute().point){
             return 0;
-        } else if (maxPointMain1>maxPointMain2) {
+        } else if (this.carteLaPlusHaute().point > mainJoueur2.carteLaPlusHaute().point) {
             return 1;
         }
         else {

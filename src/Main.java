@@ -19,9 +19,9 @@ public class Main {
                 i++;
             }
             switch (mainJoueur1.compareTo(mainJoueur2)){
-                case 0 -> System.out.println("Les deux cartes ont la même valeur, c'est une égalité");
-                case 1 -> System.out.println("Le vainqueur est le joueur 1");
-                case 2 -> System.out.println("Le vainqueur est le joueur 2");
+                case 0 -> System.out.println("Les deux cartes ont la même valeur, c'est une égalité de la carte : "+mainJoueur1.carteLaPlusHaute);
+                case 1 -> System.out.println("Le vainqueur est le joueur 1 avec la carte: " + mainJoueur1.carteLaPlusHaute);
+                case 2 -> System.out.println("Le vainqueur est le joueur 2 avec la carte: " + mainJoueur2.carteLaPlusHaute);
             }
         }
 
