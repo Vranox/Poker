@@ -43,6 +43,22 @@ public class Carte {
 
 
     }
+    /*
+    La méthode permet de comparer deux cartes entre elles et retourne :
+        - 0 : si les deux cartes sont égales
+        - 1 : si this est supérieur à la carte entrée en paramètre
+        - 2 : si this est inférieur à la carte entrée en paramètre
+     */
+    public int compareTo(Carte carte2){
+        if(this.point> carte2.point){
+            return 1;
+        } else if (this.point< carte2.point) {
+            return 2;
+        }
+        else{
+            return 0;
+        }
+    }
     @Override
     public String toString(){
         return "Le " + this.title + " de " + this.couleur + " vaut " + this.point + " points!";
