@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MainJoueurTest {
 
     @org.junit.jupiter.api.Test
-    void compareToWinPlayer2() {
+    void compareToWinPlayer2() throws Exception {
         MainJoueur mainJoueur1 = new MainJoueur();
         mainJoueur1.cartes.add(new Carte("5Tr"));
         mainJoueur1.cartes.add(new Carte("6Tr"));
@@ -21,7 +21,7 @@ class MainJoueurTest {
         assertEquals(2,mainJoueur1.compareTo(mainJoueur2));
     }
     @Test
-    void compareToWinPlayer1() {
+    void compareToWinPlayer1() throws Exception {
         MainJoueur mainJoueur1 = new MainJoueur();
         mainJoueur1.cartes.add(new Carte("5Tr"));
         mainJoueur1.cartes.add(new Carte("6Tr"));
@@ -37,7 +37,7 @@ class MainJoueurTest {
         assertEquals(1,mainJoueur1.compareTo(mainJoueur2));
     }
     @Test
-    void compareToEquals() {
+    void compareToEquals() throws Exception {
         MainJoueur mainJoueur1 = new MainJoueur();
         mainJoueur1.cartes.add(new Carte("5Tr"));
         mainJoueur1.cartes.add(new Carte("6Tr"));

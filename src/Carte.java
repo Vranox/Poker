@@ -3,21 +3,30 @@ public class Carte {
     int point;
     COULEUR couleur;
 
-    public Carte(String input) {
+    public Carte(String input) throws Exception {
+        //Vérification validité du format de l'input
+        if(input.length()>4 || input.length()<3){
+            throw new Exception("Longueur de l'entrée invalide");
+        }
         //Interprétation de la couleur de la carte entré en input
         String strCouleur =  input.substring(input.length()-2);
-        switch (strCouleur) {
-            case "Tr" -> this.couleur = COULEUR.TREFLE;
-            case "Pi" -> this.couleur = COULEUR.PIQUE;
-            case "Co" -> this.couleur = COULEUR.COEUR;
-            case "Ca" -> this.couleur = COULEUR.CARREAU;
-            default -> this.couleur = null;
+        switch (strCouleur.toLowerCase()) {
+            case "tr" -> this.couleur = COULEUR.TREFLE;
+            case "pi" -> this.couleur = COULEUR.PIQUE;
+            case "co" -> this.couleur = COULEUR.COEUR;
+            case "ca" -> this.couleur = COULEUR.CARREAU;
+            default -> throw new Exception("Couleur inexistante");
         }
         //Interprétation de la valeur de la carte
         String valeurCarte = input.substring(0,input.length()-2);
         if(isNumeric(valeurCarte)){
             this.point = Integer.parseInt(valeurCarte);
-            this.title = Integer.toString(this.point);
+            if(this.point>1 && this.point<11) {
+                this.title = Integer.toString(this.point);
+            }
+            else {
+                throw new Exception("La valeur de la carte n'est pas valide");
+            }
         }
         else{
             switch (valeurCarte) {
@@ -37,7 +46,7 @@ public class Carte {
                     this.point = 11;
                     this.title = "Valet";
                 }
-                default -> this.point = 0;
+                default -> throw new Exception("Valeur de carte inconnu");
             }
         }
 
@@ -70,5 +79,9 @@ public class Carte {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    public int getPoint() {
+        return point;
     }
 }
